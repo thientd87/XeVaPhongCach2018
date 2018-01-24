@@ -1,0 +1,121 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="XPC.Web.Site" %>
+<%@ Register Src="~/GUI/TopMenu.ascx" TagPrefix="uc1" TagName="TopMenu" %>
+<%@ Register Src="~/GUI/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
+<%@ Register Src="~/GUI/Adv.ascx" TagPrefix="uc1" TagName="Adv" %>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title id="title" runat="server">Xe và phong cách - xevaphongcach.net</title>
+    <link rel="SHORTCUT ICON" href="/images/star_ico.png">
+    <meta name="description" runat="server" id="description" content="vietpress" />
+    <meta name="keywords" content="" runat="server" id="keywords" />
+    <meta http-equiv="refresh" content="500" runat="server" id="metaRefesh" />
+    <meta content="INDEX,FOLLOW,NOARCHIVE" name="robots" id="robot" runat="server" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  
+    <meta http-equiv="content-language" content="vi" />
+    <link href="/Styles/styles.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="/Scripts/jquery.ellipsis.js"></script>
+    <script src="/Scripts/Common.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-54538459-1', 'auto');
+        ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+    <div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=237127563023836";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    <div id="lock">
+        <div id="popup">
+            <img src="/public/popup/Close.png" title="Ẩn">
+            <div id="form">
+                <form action="" method="POST">
+                    <input type="text" name="fullname">
+                    <input type="text" name="address">
+                    <input type="email" name="email">
+                    <input type="tel" name="phone">
+                    <select name="gift">
+                        <option value="Áo phông, móc chìa khóa">Áo phông, móc chìa khóa</option>
+                        <option value="Áo mưa, móc chìa khóa">Áo mưa, móc chìa khóa</option>
+                        <option value="Tạp chí, móc chìa khóa">Tạp chí, móc chìa khóa</option>
+                        <option value="Mũ, móc chìa khóa">Mũ, móc chìa khóa</option>
+                    </select>
+                    <button name="submit" id="buttonSubmit"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="lock2">
+    <div class="dangkymuahang">
+        <div class="headerBox">
+            đăng ký thông tin mua hàng
+            <a href=""></a>
+        </div>
+        <div class="registerForm">
+            <div class="oh">
+                <div class="text-field">Họ và tên:</div>
+                <div class="input-field"><input type="text" id="txtHoTen"/></div>
+            </div>
+            <div class="oh">
+            <div class="text-field">Địa chỉ: </div>
+            <div class="input-field"><input type="text" id="txtAddress"/></div>
+                </div>
+            <div class="oh">
+            <div class="text-field">Email:</div>
+            <div class="input-field"><input type="text" id="txtEmail"/></div>
+                </div>
+            <div class="oh">
+            <div class="text-field">Điện thoại:</div>
+            <div class="input-field"><input type="text" id="txtTel"/></div>
+                </div>
+            <div class="oh" style="text-align: center">
+                <a href="javascript:void(0)" id="btnDangKyNgay"><img src="/Images/btnDangKyNgay.png"/></a>
+                &nbsp;&nbsp;
+                <a href="javascript:void(0)" id="btnCancel"><img src="/Images/btnCancel.png" style="margin-top: 3px"/></a>
+            </div>
+        </div>
+    </div>
+        </div>
+    <form id="form1" runat="server">
+        <div id="wrapperBanner">
+	        <div id="bannerLeft">
+                <uc1:Adv runat="server" ID="Adv" AdvID="15"  />
+	        </div>
+	        <div id="bannerRight">
+	          <uc1:Adv runat="server" ID="Adv1" AdvID="16" />
+	        </div>
+            </div>
+        <div id="wrapper" class="wrapper">
+            <uc1:TopMenu runat="server" id="TopMenu" />
+             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <uc1:Footer runat="server" id="Footer" />    
+        </div>
+        
+     
+       
+    </form>
+</body>
+</html>

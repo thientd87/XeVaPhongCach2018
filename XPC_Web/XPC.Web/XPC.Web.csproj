@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BA3A1B8F-18F5-451C-A4A0-18541D99AB02}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XPC.Web</RootNamespace>
+    <AssemblyName>XPC.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Recaptcha, Version=1.0.5.0, Culture=neutral, PublicKeyToken=9afc4d65b28c38c2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dlls\Recaptcha.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\MigrateXPC.sql" />
+    <Content Include="Default.aspx" />
+    <Content Include="Dlls\Recaptcha.dll" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="GUI\Adv.ascx" />
+    <Content Include="GUI\Footer.ascx" />
+    <Content Include="GUI\HomeAnhDep.ascx" />
+    <Content Include="GUI\HomeBonBaiNoiBat.ascx" />
+    <Content Include="GUI\HomeNoiBatHorizal.ascx" />
+    <Content Include="GUI\HomeNoiBatVertical.ascx" />
+    <Content Include="GUI\HomeProductNoiBatMuc.ascx" />
+    <Content Include="GUI\HomeThongTinDoanhNghiep.ascx" />
+    <Content Include="GUI\HomeTinDocNhieu.ascx" />
+    <Content Include="GUI\HomeVideo.ascx" />
+    <Content Include="GUI\HomeVote.ascx" />
+    <Content Include="GUI\ListTinDocNhieu.ascx" />
+    <Content Include="GUI\Pagging.ascx" />
+    <Content Include="GUI\TopMenu.ascx" />
+    <Content Include="Images\banner_1.png" />
+    <Content Include="Images\btnCancel.png" />
+    <Content Include="Images\btnDangKyNgay.png" />
+    <Content Include="Images\btnFb.png" />
+    <Content Include="Images\btnMuaHang.jpg" />
+    <Content Include="Images\btnRSS.jpg" />
+    <Content Include="Images\Bui-Th-Son-Gp-g-Hoang-t-xu-Han-Genesis-Coupe-2009.jpg" />
+    <Content Include="Images\Car-Passion-va-thc-hu-cau-chuyn-thoai-trao.jpg" />
+    <Content Include="Images\iconSearch.png" />
+    <Content Include="Images\iconShoppingNoibatMuc.png" />
+    <Content Include="Images\iconViewMore.png" />
+    <Content Include="Images\iconWheel.png" />
+    <Content Include="Images\line_ver_menu.gif" />
+    <Content Include="Images\line_video.png" />
+    <Content Include="Images\line_video_small.png" />
+    <Content Include="Images\list_ico.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logoBUzzCom.png" />
+    <Content Include="Images\logoSmall.png" />
+    <Content Include="Images\logoXephongCach.png" />
+    <Content Include="Images\next_ico.png" />
+    <Content Include="Images\Nguyn-Minh-Quang-Zife-design-Steed-400-d-Bobber.jpg" />
+    <Content Include="Images\play_ico.png" />
+    <Content Include="Images\pre_next_video.png" />
+    <Content Include="Images\product1.png" />
+    <Content Include="Images\product2.png" />
+    <Content Include="Images\sprite.png" />
+    <Content Include="Images\star_ico.png" />
+    <Content Include="Images\store1.jpg" />
+    <Content Include="Images\Xe-hoi-bn-tm%281%29.jpg" />
+    <Content Include="Images\Xe-hoi-bn-tm%282%29.jpg" />
+    <Content Include="Images\Xe-hoi-bn-tm.jpg" />
+    <Content Include="Images\XPCMap.png" />
+    <Content Include="Pages\Album.aspx" />
+    <Content Include="Pages\AlbumDetail.aspx" />
+    <Content Include="Pages\LienHe.aspx" />
+    <Content Include="Pages\ListCategory.aspx" />
+    <Content Include="Pages\ListNews.aspx" />
+    <Content Include="Pages\ListProduct.aspx" />
+    <Content Include="Pages\NewsDetails.aspx" />
+    <Content Include="Pages\ProductDetail.aspx" />
+    <Content Include="Pages\TagList.aspx" />
+    <Content Include="Pages\Video.aspx" />
+    <Content Include="Pages\SearchResult.aspx" />
+    <Content Include="Pages\VoteItem.aspx" />
+    <Content Include="Pages\VoteResult.aspx" />
+    <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.ellipsis.js" />
+    <Content Include="Scripts\fancybox\blank.gif" />
+    <Content Include="Scripts\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="Scripts\fancybox\fancybox_loading.gif" />
+    <Content Include="Scripts\fancybox\fancybox_overlay.png" />
+    <Content Include="Scripts\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="Scripts\fancybox\fancybox_sprite.png" />
+    <Content Include="Scripts\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-media.js" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Scripts\fancybox\jquery.fancybox.css" />
+    <Content Include="Scripts\fancybox\jquery.fancybox.js" />
+    <Content Include="Scripts\fancybox\jquery.fancybox.pack.js" />
+    <Content Include="Services\dangkymuahang.asmx" />
+    <Content Include="Services\dangkyquatang.asmx" />
+    <Content Include="Styles\styles.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\RewriteRules.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Site.Master" />
+    <Content Include="GetThumbNail.ashx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetThumbNail.ashx.cs">
+      <DependentUpon>GetThumbNail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Adv.ascx.cs">
+      <DependentUpon>Adv.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Adv.ascx.designer.cs">
+      <DependentUpon>Adv.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HomeAnhDep.ascx.cs">
+      <DependentUpon>HomeAnhDep.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\HomeAnhDep.ascx.designer.cs">
+      <DependentUpon>HomeAnhDep.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HomeBonBaiNoiBat.ascx.cs">
+      <DependentUpon>HomeBonBaiNoiBat.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\HomeBonBaiNoiBat.ascx.designer.cs">
+      <DependentUpon>HomeBonBaiNoiBat.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HomeNoiBatHorizal.ascx.cs">
+      <DependentUpon>HomeNoiBatHorizal.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\HomeNoiBatHorizal.ascx.designer.cs">
+      <DependentUpon>HomeNoiBatHorizal.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HomeNoiBatVertical.ascx.cs">
+      <DependentUpon>HomeNoiBatVertical.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\HomeNoiBatVertical.ascx.designer.cs">
+      <DependentUpon>HomeNoiBatVertical.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HomeProductNoiBatMuc.ascx.cs">
+      <DependentUpon>HomeProductNoiBatMuc.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\HomeProductNoiBatMuc.ascx.designer.cs">
+      <DependentUpon>HomeProductNoiBatMuc.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HomeThongTinDoanhNghiep.ascx.cs">
+      <DependentUpon>HomeThongTinDoanhNghiep.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\HomeThongTinDoanhNghiep.ascx.designer.cs">
+      <DependentUpon>HomeThongTinDoanhNghiep.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HomeTinDocNhieu.ascx.cs">
+      <DependentUpon>HomeTinDocNhieu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\HomeTinDocNhieu.ascx.designer.cs">
+      <DependentUpon>HomeTinDocNhieu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HomeVideo.ascx.cs">
+      <DependentUpon>HomeVideo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\HomeVideo.ascx.designer.cs">
+      <DependentUpon>HomeVideo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HomeVote.ascx.cs">
+      <DependentUpon>HomeVote.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\HomeVote.ascx.designer.cs">
+      <DependentUpon>HomeVote.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ListTinDocNhieu.ascx.cs">
+      <DependentUpon>ListTinDocNhieu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\ListTinDocNhieu.ascx.designer.cs">
+      <DependentUpon>ListTinDocNhieu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pagging.ascx.cs">
+      <DependentUpon>Pagging.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Pagging.ascx.designer.cs">
+      <DependentUpon>Pagging.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TopMenu.ascx.cs">
+      <DependentUpon>TopMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\TopMenu.ascx.designer.cs">
+      <DependentUpon>TopMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Album.aspx.cs">
+      <DependentUpon>Album.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Album.aspx.designer.cs">
+      <DependentUpon>Album.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AlbumDetail.aspx.cs">
+      <DependentUpon>AlbumDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AlbumDetail.aspx.designer.cs">
+      <DependentUpon>AlbumDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LienHe.aspx.cs">
+      <DependentUpon>LienHe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\LienHe.aspx.designer.cs">
+      <DependentUpon>LienHe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ListCategory.aspx.cs">
+      <DependentUpon>ListCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ListCategory.aspx.designer.cs">
+      <DependentUpon>ListCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ListNews.aspx.cs">
+      <DependentUpon>ListNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ListNews.aspx.designer.cs">
+      <DependentUpon>ListNews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ListProduct.aspx.cs">
+      <DependentUpon>ListProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ListProduct.aspx.designer.cs">
+      <DependentUpon>ListProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NewsDetails.aspx.cs">
+      <DependentUpon>NewsDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\NewsDetails.aspx.designer.cs">
+      <DependentUpon>NewsDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProductDetail.aspx.cs">
+      <DependentUpon>ProductDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProductDetail.aspx.designer.cs">
+      <DependentUpon>ProductDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TagList.aspx.cs">
+      <DependentUpon>TagList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TagList.aspx.designer.cs">
+      <DependentUpon>TagList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Video.aspx.cs">
+      <DependentUpon>Video.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Video.aspx.designer.cs">
+      <DependentUpon>Video.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SearchResult.aspx.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SearchResult.aspx.designer.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\VoteItem.aspx.cs">
+      <DependentUpon>VoteItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\VoteItem.aspx.designer.cs">
+      <DependentUpon>VoteItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\VoteResult.aspx.cs">
+      <DependentUpon>VoteResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\VoteResult.aspx.designer.cs">
+      <DependentUpon>VoteResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\dangkymuahang.asmx.cs">
+      <DependentUpon>dangkymuahang.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\dangkyquatang.asmx.cs">
+      <DependentUpon>dangkyquatang.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ThumbImages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XPC.BO\XPC.BO.csproj">
+      <Project>{1790f23f-34f9-48e1-af99-2763afdd857a}</Project>
+      <Name>XPC.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8789</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8789/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
