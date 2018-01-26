@@ -12,10 +12,11 @@ using System;
 using System.Web;
 using System.IO;
 using System.Collections.Specialized;
+using System.Drawing;
 using System.Text;
 using System.Web;
 
-public class filemanager : IHttpHandler 
+public class filemanager : IHttpHandler
 {
 
     //===================================================================
@@ -42,8 +43,8 @@ public class filemanager : IHttpHandler
 
         return false;
     }
-    
-    
+
+
     private string getFolderInfo(string path)
     {
         DirectoryInfo RootDirInfo = new DirectoryInfo(HttpContext.Current.Server.MapPath(path));
@@ -52,10 +53,10 @@ public class filemanager : IHttpHandler
         sb.AppendLine("{");
 
         int i = 0;
-        
-        foreach (DirectoryInfo DirInfo in RootDirInfo.GetDirectories()) 
+
+        foreach (DirectoryInfo DirInfo in RootDirInfo.GetDirectories())
         {
-            if (i > 0) 
+            if (i > 0)
             {
                 sb.Append(",");
                 sb.AppendLine();
@@ -92,7 +93,7 @@ public class filemanager : IHttpHandler
             sb.AppendLine("\"Path\": \"" + Path.Combine(path, fileInfo.Name) + "\",");
             sb.AppendLine("\"Filename\": \"" + fileInfo.Name + "\",");
             sb.AppendLine("\"File Type\": \"" + fileInfo.Extension.Replace(".","") + "\",");
-            
+
             if (IsImage(fileInfo))
             {
                 sb.AppendLine("\"Preview\": \"" + Path.Combine(path, fileInfo.Name) + "\",");
@@ -101,20 +102,23 @@ public class filemanager : IHttpHandler
             {
                 sb.AppendLine("\"Preview\": \"" + String.Format("{0}{1}.png", IconDirectory, fileInfo.Extension.Replace(".", "")) + "\",");
             }
-            
+
             sb.AppendLine("\"Properties\": {");
             sb.AppendLine("\"Date Created\": \"" + fileInfo.CreationTime.ToString() + "\", ");
             sb.AppendLine("\"Date Modified\": \"" + fileInfo.LastWriteTime.ToString() + "\", ");
 
-            if (IsImage(fileInfo)) 
-            {
-                using (System.Drawing.Image img = System.Drawing.Image.FromFile(fileInfo.FullName))
-                {
-                    sb.AppendLine("\"Height\": " + img.Height.ToString() + ",");
-                    sb.AppendLine("\"Width\": " + img.Width.ToString() + ",");
-                }
-            }
-                   
+            //if (IsImage(fileInfo))
+            //{
+            //    using (FileStream fs = new FileStream(Path.Combine(fileInfo.Directory.ToString(), fileInfo.Name), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            //    {
+            //        using (Image img = Image.FromStream(fs))
+            //        {
+            //             sb.AppendLine("\"Height\": " + img.Height.ToString() + ",");
+            //             sb.AppendLine("\"Width\": " + img.Width.ToString() + ",");
+            //        }
+            //    }
+            //}
+
             sb.AppendLine("\"Size\": " + fileInfo.Length.ToString() + " ");
             sb.AppendLine("},");
             sb.AppendLine("\"Error\": \"\",");
@@ -123,14 +127,14 @@ public class filemanager : IHttpHandler
 
             i++;
         }
-        
+
         sb.AppendLine();
         sb.AppendLine("}");
 
         return sb.ToString();
     }
 
-    private string getInfo(string path) 
+    private string getInfo(string path)
     {
         StringBuilder sb = new StringBuilder();
 
@@ -164,7 +168,7 @@ public class filemanager : IHttpHandler
             sb.AppendLine("\"Path\": \"" + path + "\",");
             sb.AppendLine("\"Filename\": \"" + fileInfo.Name + "\",");
             sb.AppendLine("\"File Type\": \"" + fileInfo.Extension.Replace(".", "") + "\",");
-            
+
             if (IsImage(fileInfo))
             {
                 sb.AppendLine("\"Preview\": \"" + path + "\",");
@@ -173,12 +177,12 @@ public class filemanager : IHttpHandler
             {
                 sb.AppendLine("\"Preview\": \"" + String.Format("{0}{1}.png", IconDirectory, fileInfo.Extension.Replace(".", "")) + "\",");
             }
-            
+
             sb.AppendLine("\"Properties\": {");
             sb.AppendLine("\"Date Created\": \"" + fileInfo.CreationTime.ToString() + "\", ");
             sb.AppendLine("\"Date Modified\": \"" + fileInfo.LastWriteTime.ToString() + "\", ");
 
-            if (IsImage(fileInfo)) 
+            if (IsImage(fileInfo))
             {
                 using (System.Drawing.Image img = System.Drawing.Image.FromFile(HttpContext.Current.Server.MapPath(path)))
                 {
@@ -186,7 +190,7 @@ public class filemanager : IHttpHandler
                     sb.AppendLine("\"Width\": " + img.Width.ToString() + ",");
                 }
             }
-            
+
             sb.AppendLine("\"Size\": " + fileInfo.Length.ToString() + " ");
             sb.AppendLine("},");
             sb.AppendLine("\"Error\": \"\",");
@@ -195,7 +199,7 @@ public class filemanager : IHttpHandler
         }
 
         return sb.ToString();
-        
+
     }
 
     private string Rename(string path, string newName)
@@ -203,7 +207,7 @@ public class filemanager : IHttpHandler
         FileAttributes attr = File.GetAttributes(HttpContext.Current.Server.MapPath(path));
 
         StringBuilder sb = new StringBuilder();
-        
+
         if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
         {
             DirectoryInfo dirInfo = new DirectoryInfo(HttpContext.Current.Server.MapPath(path));
@@ -220,21 +224,21 @@ public class filemanager : IHttpHandler
                 fileInfo2.FullName.Replace(HttpRuntime.AppDomainAppPath, "/").Replace(Path.DirectorySeparatorChar, '/') + "\",");
             sb.AppendLine("\"New Name\": \"" + fileInfo2.Name + "\"");
             sb.AppendLine("}");
-            
+
         }
-        else 
+        else
         {
             FileInfo fileInfo = new FileInfo(HttpContext.Current.Server.MapPath(path));
             File.Move(HttpContext.Current.Server.MapPath(path), Path.Combine(fileInfo.Directory.FullName, newName));
 
             FileInfo fileInfo2 = new FileInfo(Path.Combine(fileInfo.Directory.FullName, newName));
-            
+
             sb.AppendLine("{");
             sb.AppendLine("\"Error\": \"No error\",");
             sb.AppendLine("\"Code\": 0,");
             sb.AppendLine("\"Old Path\": \"" + path + "\",");
             sb.AppendLine("\"Old Name\": \"" + newName + "\",");
-            sb.AppendLine("\"New Path\": \"" + 
+            sb.AppendLine("\"New Path\": \"" +
                 fileInfo2.FullName.Replace(HttpRuntime.AppDomainAppPath, "/").Replace(Path.DirectorySeparatorChar, '/') + "\",");
             sb.AppendLine("\"New Name\": \"" + fileInfo2.Name + "\"");
             sb.AppendLine("}");
@@ -243,7 +247,7 @@ public class filemanager : IHttpHandler
         return sb.ToString();
     }
 
-    private string Delete(string path) 
+    private string Delete(string path)
     {
         FileAttributes attr = File.GetAttributes(HttpContext.Current.Server.MapPath(path));
 
@@ -263,7 +267,7 @@ public class filemanager : IHttpHandler
         sb.AppendLine("\"Code\": 0,");
         sb.AppendLine("\"Path\": \"" + path + "\"");
         sb.AppendLine("}");
-        
+
         return sb.ToString();
     }
 
@@ -279,11 +283,11 @@ public class filemanager : IHttpHandler
         sb.AppendLine("\"Error\": \"No error\",");
         sb.AppendLine("\"Code\": 0");
         sb.AppendLine("}");
-        
+
         return sb.ToString();
     }
-    
-    public void ProcessRequest (HttpContext context) 
+
+    public void ProcessRequest (HttpContext context)
     {
         context.Response.ClearHeaders();
         context.Response.ClearContent();
@@ -297,49 +301,49 @@ public class filemanager : IHttpHandler
                 context.Response.ContentEncoding = Encoding.UTF8;
 
                 context.Response.Write(getInfo(context.Request["path"]));
-                
+
                 break;
             case "getfolder":
 
-                 context.Response.ContentType = "plain/text";
-                 context.Response.ContentEncoding = Encoding.UTF8;
+                context.Response.ContentType = "plain/text";
+                context.Response.ContentEncoding = Encoding.UTF8;
 
-                 context.Response.Write(getFolderInfo(context.Request["path"]));
-                
+                context.Response.Write(getFolderInfo(context.Request["path"]));
+
                 break;
             case "rename":
-                
+
                 context.Response.ContentType = "plain/text";
                 context.Response.ContentEncoding = Encoding.UTF8;
 
                 context.Response.Write(Rename(context.Request["old"], context.Request["new"]));
-                
+
                 break;
             case "delete":
-                
+
                 context.Response.ContentType = "plain/text";
                 context.Response.ContentEncoding = Encoding.UTF8;
 
                 context.Response.Write(Delete(context.Request["path"]));
-                
+
                 break;
             case "addfolder":
-                
+
                 context.Response.ContentType = "plain/text";
                 context.Response.ContentEncoding = Encoding.UTF8;
 
                 context.Response.Write(AddFolder(context.Request["path"], context.Request["name"]));
-                
+
                 break;
             case "download":
 
                 FileInfo fi = new FileInfo(context.Server.MapPath(context.Request["path"]));
-                
+
                 context.Response.AddHeader("Content-Disposition", "attachment; filename=" + context.Server.UrlPathEncode(fi.Name));
                 context.Response.AddHeader("Content-Length", fi.Length.ToString());
                 context.Response.ContentType = "application/octet-stream";
                 context.Response.TransmitFile(fi.FullName);
-                
+
                 break;
             case "add":
 
@@ -348,12 +352,12 @@ public class filemanager : IHttpHandler
                 string path = context.Request["currentpath"];
 
                 file.SaveAs(context.Server.MapPath(Path.Combine(path, Path.GetFileName(file.FileName))));
-               
+
                 context.Response.ContentType = "text/html";
                 context.Response.ContentEncoding = Encoding.UTF8;
 
                 StringBuilder sb = new StringBuilder();
-                
+
                 sb.AppendLine("{");
                 sb.AppendLine("\"Path\": \"" + path + "\",");
                 sb.AppendLine("\"Name\": \"" + Path.GetFileName(file.FileName) + "\",");
@@ -369,14 +373,14 @@ public class filemanager : IHttpHandler
                 System.Web.UI.HtmlTextWriter writer = new System.Web.UI.HtmlTextWriter(sw);
                 txt.RenderControl(writer);
 
-                context.Response.Write(sw.ToString()); 
-                
+                context.Response.Write(sw.ToString());
+
                 break;
             default:
                 break;
         }
     }
- 
+
     public bool IsReusable {
         get {
             return false;
