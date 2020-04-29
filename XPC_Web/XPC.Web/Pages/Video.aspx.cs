@@ -50,7 +50,7 @@ namespace XPC.Web.Pages
                         {
                             DataRow dtRow = detail.Rows[0];
                             string noHTML = Regex.Replace(dtRow["News_Content"].ToString(), @"<[^>]+>|&nbsp;", "").Trim();
-                            ltrBigVideo.Text = "<iframe width=\"595\" height=\"351\" src=\"http://" + noHTML + "\" frameborder=\"0\" allowfullscreen=\"\"></iframe>";
+                            ltrBigVideo.Text = "<iframe width=\"595\" height=\"351\" src=\"" + noHTML + "\" frameborder=\"0\" allowfullscreen=\"\"></iframe>";
                             ltrBigTitle.Text = dtRow["News_Title"].ToString();
                             ltrDateTime.Text = dtRow["PublishDate"].ToString();
                             ltrBigInitContent.Text = dtRow["News_InitContent"].ToString();

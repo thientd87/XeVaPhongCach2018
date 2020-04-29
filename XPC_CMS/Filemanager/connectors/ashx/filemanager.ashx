@@ -107,17 +107,27 @@ public class filemanager : IHttpHandler
             sb.AppendLine("\"Date Created\": \"" + fileInfo.CreationTime.ToString() + "\", ");
             sb.AppendLine("\"Date Modified\": \"" + fileInfo.LastWriteTime.ToString() + "\", ");
 
-            //if (IsImage(fileInfo))
-            //{
-            //    using (FileStream fs = new FileStream(Path.Combine(fileInfo.Directory.ToString(), fileInfo.Name), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-            //    {
-            //        using (Image img = Image.FromStream(fs))
-            //        {
-            //             sb.AppendLine("\"Height\": " + img.Height.ToString() + ",");
-            //             sb.AppendLine("\"Width\": " + img.Width.ToString() + ",");
-            //        }
-            //    }
-            //}
+            try
+            {
+                if (IsImage(fileInfo))
+                {
+                    using (
+                        FileStream fs = new FileStream(Path.Combine(fileInfo.Directory.ToString(), fileInfo.Name),
+                            FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    {
+                        using (Image img = Image.FromStream(fs))
+                        {
+                            sb.AppendLine("\"Height\": " + img.Height.ToString() + ",");
+                            sb.AppendLine("\"Width\": " + img.Width.ToString() + ",");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                
+            }
+
 
             sb.AppendLine("\"Size\": " + fileInfo.Length.ToString() + " ");
             sb.AppendLine("},");
