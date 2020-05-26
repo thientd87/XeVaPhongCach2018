@@ -2,7 +2,7 @@
 <div id="other">
     <div id="top-thuxe" class="cate_vertical_thamdo">
         <h2>
-            <a class="tab-news" href="http://xevaphongcach.net/#">Thăm dò ý kiến</a>
+            <a class="tab-news" href="https://xevaphongcach.net/#">Thăm dò ý kiến</a>
         </h2>
         <div class="list-news">
             <p><asp:Literal runat="server" ID="ltrVote"></asp:Literal></p>

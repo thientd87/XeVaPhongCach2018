@@ -10,7 +10,7 @@
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
-        <li><a href="http://xevaphongcach.net/#">Liên hệ</a></li>
+        <li><a href="https://xevaphongcach.net/#">Liên hệ</a></li>
     </ul>
 </div><!--end of #bottom-menu-->        
         <div id="footer">

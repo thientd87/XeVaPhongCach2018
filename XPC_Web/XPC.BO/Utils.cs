@@ -265,7 +265,7 @@ namespace BO
 
             // Add Home Page
             writer.WriteStartElement("url");
-            writer.WriteElementString("loc", "http://gafin.vn");
+            writer.WriteElementString("loc", "https://xevaphongcach.net");
             writer.WriteElementString("changefreq", "daily");
             writer.WriteEndElement(); // url
 
@@ -273,7 +273,7 @@ namespace BO
 
             foreach (DataRow row in tblResult.Rows)
             {
-                string loc = "http://gafin.vn" + row["URL"].ToString();
+                string loc = "https://xevaphongcach.net" + row["URL"].ToString();
                 string changefreq = row["changefreq"].ToString();
                 writer.WriteStartElement("url");
                 writer.WriteElementString("loc", loc);

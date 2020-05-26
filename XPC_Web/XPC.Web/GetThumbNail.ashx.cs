@@ -55,7 +55,7 @@ namespace XPC.Web
             {
                 string imageFile = "";
                 Bitmap thumbBitmap = null;
-                if (imagePath.IndexOf("http://") != -1)
+                if (imagePath.IndexOf("http") != -1)
                 {
                     HttpWebRequest request = (HttpWebRequest)WebRequest.Create(imagePath);
                     HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -238,7 +238,7 @@ namespace XPC.Web
 
         private string GetHTTPImages(string str)
         {
-            if ((str != null) && (str.ToLower().IndexOf("http://") != -1))
+            if ((str != null) && (str.ToLower().IndexOf("http") != -1))
             {
                 str = str.Substring(8);
                 string[] temp = str.Split('/');

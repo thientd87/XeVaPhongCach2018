@@ -9,7 +9,7 @@
 
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="https://www.w3.org/1999/xhtml">
 <head runat="server">
     <title id="title" runat="server">Xe và phong cách - xevaphongcach.net</title>
     <link rel="SHORTCUT ICON" href="/images/star_ico.png">

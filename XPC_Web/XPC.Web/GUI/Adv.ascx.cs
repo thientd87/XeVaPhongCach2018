@@ -17,7 +17,7 @@ namespace XPC.Web.GUI
 
         public string Target { set { _target = value; } }
         public string ClassName { set { css = value; } }
-        string ImgFormat = "<div class=\"{2}\"><a target=\"{3}\" alt=\"http://xevaphongcach.net\" href=\"{0}\"><img border=\"0\" src=\"{1}\"/></a></div>";
+        string ImgFormat = "<div class=\"{2}\"><a target=\"{3}\" alt=\"https://xevaphongcach.net\" href=\"{0}\"><img border=\"0\" src=\"{1}\"/></a></div>";
         string FlashFormat = "<div class=\"{3}\"><embed  src=\"{0}\"/></div>";
         string EmbedFormat = "<div class=\"{1}\">{0}</div>";
         protected void Page_Load(object sender, EventArgs e)
